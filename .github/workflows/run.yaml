@@ -1,0 +1,19 @@
+name: 'Deploy'
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    environment:
+      name: Production
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.0.0
+      - run: |
+          gcloud builds submit --tag gcr.io/$PROJECT_ID/sample-go
+          gcloud run deploy --image gcr.io/$PROJECT_ID/sample-go --platform managed
