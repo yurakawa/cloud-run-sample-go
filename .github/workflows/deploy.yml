@@ -29,7 +29,10 @@ jobs:
       - name: "Use gcloud CLI"
         run: "gcloud info"
 
-      - name: Build And Deploy
+      - name: Build
         run: |
           gcloud builds submit --tag gcr.io/$GCP_PROJECT_ID/sample-go
+
+      - name: Deploy
+        run: |
           gcloud run deploy sample-go --image gcr.io/$GCP_PROJECT_ID/sample-go
