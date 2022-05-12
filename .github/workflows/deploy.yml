@@ -35,4 +35,4 @@ jobs:
 
       - name: Deploy
         run: |
-          gcloud run deploy sample-go --image gcr.io/$GCP_PROJECT_ID/sample-go
+          gcloud run deploy sample-go --image gcr.io/$GCP_PROJECT_ID/sample-go --region=asia-northeast1
