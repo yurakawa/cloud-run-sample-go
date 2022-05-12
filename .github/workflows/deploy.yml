@@ -32,4 +32,4 @@ jobs:
       - name: Build And Deploy
         run: |
           gcloud builds submit --tag gcr.io/$GCP_PROJECT_ID/sample-go
-          gcloud run deploy --image gcr.io/$GCP_PROJECT_ID/sample-go
+          gcloud run deploy sample-go --image gcr.io/$GCP_PROJECT_ID/sample-go
