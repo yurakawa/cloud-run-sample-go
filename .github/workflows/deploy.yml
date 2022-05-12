@@ -31,6 +31,5 @@ jobs:
 
       - name: Build And Deploy
         run: |
-          gcloud config set run/platform managed
           gcloud builds submit --tag gcr.io/$GCP_PROJECT_ID/sample-go
           gcloud run deploy --image gcr.io/$GCP_PROJECT_ID/sample-go
